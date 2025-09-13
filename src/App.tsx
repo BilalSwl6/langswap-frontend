@@ -1,12 +1,18 @@
-import { Button } from './components/ui/button'
+import { Routes, Route } from 'react-router'
+import NotFound from './pages/404';
+import AuthRoutes from './routes/auth-routes';
+import Home from './pages/home';
 
 function App() {
 
   return (
     <>
-      <div className='text-center mt-4'>
-        <Button>Test Button</Button>
-      </div>
+      <Routes>
+        <Route index element={<Home />} />
+        {/* {OtherRoutes()} */}
+        {AuthRoutes()}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   )
 }
